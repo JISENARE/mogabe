@@ -22,6 +22,12 @@ $user_point = $SESSION['point'];
 <head>
 <meta charset="UTF-8">
 <title><?php echo h($user_id);?> profile</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/dark-hive/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript">
+google.load("jquery", "1.7");
+google.load("jqueryui", "1.8");
+</script>
 </head>
 <body>
 <header><h1>mogabe</h1><h2> -プロフィール画面</h2></header>
