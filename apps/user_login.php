@@ -39,6 +39,8 @@ if($me = getUser($user_id, $password, $dbh)){
 
 	// セッションにmeとして登録
 	$_SESSION['user_id'] = $me['user_id'];
+	$_SESSION['user_name'] = $me['user_name'];
+	$_SESSION['point'] = $me['point'];
 
 	//パスワードが一致したらセッションを開始しprofileへリダイレクトする
 	header("Location: ".SITE_URL."profile.php");
@@ -49,3 +51,4 @@ if($me = getUser($user_id, $password, $dbh)){
 }
 
 
+?>
