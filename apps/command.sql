@@ -1,5 +1,5 @@
 create database mogabe;
-grant all on mogabe.* to jisenare@localhost identified by '*****';
+#grant all on mogabe.* to jisenare@localhost identified by '*****';
 
 use mogage
 
