@@ -44,7 +44,6 @@ jQuery( function() {
 </style>
 </head>
 <body>
-<header><h1>mogabe</h1><h2> -プロフィール画面</h2></header>
 <nav>
 <ul id="gmenu">
 <li>TOP</li>
@@ -53,6 +52,7 @@ jQuery( function() {
 <li><a href="./gashapon.php">ガチャ画面</a></li>
 </ul>
 </nav>
+</br>
 <section>
 <h1>ようこそ <?php echo h($user_id);?>さん</h1>
 <div>
