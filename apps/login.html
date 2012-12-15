@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>ログイン画面</title>
-</head>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ログイン画面</title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css"
+        />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+	</head>
 <body>
-<h1>ログイン画面</h1>
-<form action="user_login.php" method="post">
-<p><label>ユーザID : </label><input type="text" name="name" id="name"></p>
-<p><label>パスワード : </label><input type="text" name="password" id="password"></p>
-<input type="submit" value="ログイン">
-</form>
+    <div data-role="page" data-theme="b" id="page1">
+        <div data-theme="b" data-role="header">
+            <h3>
+                ログイン画面
+            </h3>
+        </div>
+        <div data-role="content">
+            <form action="user_login.php" method="post">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput3">
+                            ユーザ名
+                        </label>
+                        <input name="name" id="textinput2" placeholder="input your user name" value=""
+                            type="text">
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput3">
+                            パスワード
+                        </label>
+                        <input name="password" id="textinput3" placeholder="input your password" value="" type="password">
+                    </fieldset>
+                </div>
+                <input type="submit" data-inline="true" data-theme="b" value="ログイン">
+            </form>
+        </div>
+        <div data-theme="b" data-role="footer" data-position="fixed">
+            <h3>
+                copy right by JISENARE
+            </h3>
+        </div>
+    </div>
+
 </body>
 </html>

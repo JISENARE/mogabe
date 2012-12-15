@@ -19,47 +19,80 @@ $point = $_SESSION['point'];
 
 <html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title><?php echo h($user_id);?> profile</title>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/redmond/jquery-ui.css" rel="stylesheet" />
-<script type="text/javascript">
-google.load("jquery", "1.7");
-google.load("jqueryui", "1.8");
-<!--
-jQuery( function() {
-    jQuery( '#gmenu' ) . buttonset();
-} );
-// -->
-</script>
-<style>
-<!--
-#gmenu li{
-    font-size: 14px;
-    margin: 0;
-    float: left;
-}
--->
-</style>
-</head>
-<body>
-<nav>
-<ul id="gmenu">
-<li>TOP</li>
-<li><a href="#">プロフィール画面</a></li>
-<li>カード一覧画面</li>
-<li><a href="./gashapon.php">ガチャ画面</a></li>
-</ul>
-</nav>
-</br>
-<section>
-<h1>ようこそ <?php echo h($user_id);?>さん</h1>
-<div>
-<img src="./Image/<?php echo h($user_id);?>.png" alt="アバター"  width="250" height="250">
-<p>所持ポイント：<?php echo h($point);?></p>
-</div>
-</section>
-
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><?php echo h($user_id);?> profile</title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css"
+        />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/redmond/jquery-ui.css" rel="stylesheet" />
+        <script type="text/javascript">
+        google.load("jquery", "1.7");
+        google.load("jqueryui", "1.8");
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page3">
+            <div data-theme="b" data-role="header">
+                <h3>
+                    プロフィール
+                </h3>
+            </div>
+            <div data-role="content">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="" data-transition="" data-theme="a" data-icon="">
+                                プロフィール
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./gashapon.php" data-transition="fade" data-theme="b" data-icon="">
+                                ガチャ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./library.php" data-transition="fade" data-theme="b" data-icon="">
+                                カード一覧
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./login.html" data-transition="fade" data-theme="b" data-icon="refresh">
+                                ログアウト
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        ようこそ<?php echo h($user_id);?>さん
+                    </p>
+                </div>
+                <div >
+                    <img src="./Image/<?php echo h($user_id);?>.png" alt="アバター" width="250px" height="250">
+                </div>
+                <div>
+                    <p>
+                        <b>
+                            所持ポイント : <?php echo h($point);?>
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div data-theme="b" data-role="footer" data-position="fixed">
+                <h3>
+                    copy right by JISENARE
+                </h3>
+            </div>
+        </div>
+    </body>
 </html>
