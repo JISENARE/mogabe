@@ -73,19 +73,17 @@ $point = $_SESSION['point'];
                     </ul>
                 </div>
                 <div>
-                    <p>
+                    <h3>
                         ようこそ<?php echo h($user_id);?>さん
-                    </p>
-                </div>
-                <div >
-                    <img src="./Image/<?php echo h($user_id);?>.png" alt="アバター" width="250px" height="250">
-                </div>
+                    </h3>
+                <img src="./Image/<?php echo h($user_id);?>.png" alt="アバター" width="250px" height="250" align="left">
                 <div>
-                    <p>
-                        <b>
-                            所持ポイント : <?php echo h($point);?>
-                        </b>
-                    </p>
+                <h3>所持ポイント : <?php echo h($point);?></h3>
+                <ul>
+                <li>ユーザアクティビティ1</li>
+                <li>ユーザアクティビティ2</li>
+                <li>ユーザアクティビティ3</li>
+                </ul>
                 </div>
             </div>
             <div data-theme="b" data-role="footer" data-position="fixed">

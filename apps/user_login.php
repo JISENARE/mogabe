@@ -20,21 +20,20 @@ $dbh = connectDb();
 
 // $user_idが空？
 if ($user_id == '') {
-	$err['user_id'] = 'ユーザIDを入力してください';
+	$errmsg = 'ユーザIDを入力してください<br/>';
 }
 // $passwordが空？
 if ($password == '') {
-	$err['password'] = 'パスワードを入力してください';
+	$errmsg += 'パスワードを入力してください';
 }
 
-if(!empty($err)){
-	echo h($err['user_id']);
-	echo h($err['password']);
+if(!empty($errmsg)){
 	exit;
 }
 
 if($me = getUser($user_id, $password, $dbh)){
 	// change session
+	//認証完了
 	session_regenerate_id(true);
 
 	// セッションにmeとして登録
@@ -46,9 +45,37 @@ if($me = getUser($user_id, $password, $dbh)){
 	header("Location: ".SITE_URL."profile.php");
 } else {
 	//パスワードが一致しない場合はエラーを表示する
-	echo h('ログイン失敗');
+	$errmsg = 'パスワードが一致しません';
 	exit;
 }
-
-
 ?>
+//エラーによりPHP処理が終了した場合のみ表示されるHTML
+<html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>エラー処理</title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css"
+        />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/redmond/jquery-ui.css" rel="stylesheet" />
+        <script type="text/javascript">
+        google.load("jquery", "1.7");
+        google.load("jqueryui", "1.8");
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+    </head>
+    <body>
+    <div>
+    <?php echo h($errmsg);?>
+    </div>
+    </body>
+</html>
