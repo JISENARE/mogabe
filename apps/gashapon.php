@@ -42,6 +42,7 @@ $user_point = $SESSION['point'];
         </script>
         <script src="my.js">
         </script>
+        
 		<script type="text/javascript">
 		<!--
 		function pickCard(frm){
