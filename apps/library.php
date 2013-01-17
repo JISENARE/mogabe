@@ -14,6 +14,9 @@ if (empty($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['user_name'];
 $point = $_SESSION['point'];
+
+
+
 ?>
 
 <html>
@@ -80,13 +83,23 @@ $point = $_SESSION['point'];
                 </div>
                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
                     <li data-role="list-divider" role="heading">
-                        Divider
+                        カード一覧
                     </li>
+                    
+                    <?php
+                        $cardlist = array('東京','新宿');
+                        foreach ($cardlist as $value){
+                    ?>
                     <li data-theme="c">
                         <a href="#" data-transition="slide">
-                            Button
-                        </a>
+                        
+                            <?php echo h($value);?>
+                        
+                        </a>                   
                     </li>
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
             <div data-theme="b" data-role="footer" data-position="fixed">
