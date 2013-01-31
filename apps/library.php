@@ -15,8 +15,13 @@ $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['user_name'];
 $point = $_SESSION['point'];
 
+$dbh = connectDb();
 
-
+$sql = "SELECT * FROM user_cards LEFT OUTER JOIN cards ON user_cards.card_id = cards.card_id 
+WHERE user_cards.user_id = :user_id";
+$stmt = $dbh->prepare($sql);
+$stmt->execute(array(":user_id"=>$user_id));
+$cardlist = $stmt->fetch();
 ?>
 
 <html>
@@ -87,13 +92,12 @@ $point = $_SESSION['point'];
                     </li>
                     
                     <?php
-                        $cardlist = array('東京','新宿');
                         foreach ($cardlist as $value){
                     ?>
                     <li data-theme="c">
                         <a href="#" data-transition="slide">
                         
-                            <?php echo h($value);?>
+                            <?php echo h($value[card_name]);?>
                         
                         </a>                   
                     </li>
