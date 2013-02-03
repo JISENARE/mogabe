@@ -13,8 +13,8 @@ if (empty($_SESSION['user_id'])) {
 
 // セッションmeからデータ取り出し
 $user_id = $_SESSION['user_id'];
-$user_name = $SESSION['user_name'];
-$user_point = $SESSION['point'];
+$user_name = $_SESSION['user_name'];
+$user_point = $_SESSION['point'];
 ?>
 
 <html>
@@ -42,35 +42,7 @@ $user_point = $SESSION['point'];
         </script>
         <script src="my.js">
         </script>
-		<script type="text/javascript">
-		<!--
-		function pickCard(frm){
-			var cardform = frm.form;
-			var ctl = parseInt(cardform.ctl.value);
-			var cardname;
-			switch(ctl){
-				case 1:
-					cardname = "社長";
-					break;
-				case 2:
-					cardname = "部長";
-					break;
-				case 3:
-					cardname = "ユニット長";
-					break;
-				case 4:
-					cardname = "苗木";
-					break;
-				default:
-					cardname = "ポイントが足りません。お金払ってね。";
-					ctl = 0;
-					break;
-			}
-			cardform.ctl.value = ctl + 1;
-			cardform.cardname.value = cardname;
-		}
-		-->
-		</script>
+        
 	</head>
 
 	<body>
@@ -116,7 +88,10 @@ $user_point = $SESSION['point'];
 			</div>
 			<div>
 				<form>
-				<input type="button" value="カードを引く" onclick="pickCard(this)"/><br/><br/>
+					<a href="./selectcard.php" data-transition="fade" data-theme="b" data-icon="refresh">
+                                カードを引く
+                    </a>
+				<br/><br/>
 				<input type="text" name="cardname" value="" style="border:none;width:200;" readonly/>
 				<input type="hidden" name="ctl"/>
 				</form>

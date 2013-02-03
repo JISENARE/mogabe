@@ -20,15 +20,15 @@ $dbh = connectDb();
 
 // $user_idが空？
 if ($user_id == '') {
-	$errmsg = 'ユーザIDを入力してください<br/>';
+	$errmsg = 'ユーザIDを入力してください。';
 }
 // $passwordが空？
 if ($password == '') {
-	$errmsg += 'パスワードを入力してください';
+	$errmsg = 'パスワードを入力してください。';
 }
 
 if(!empty($errmsg)){
-	exit;
+	goto a;
 }
 
 if($me = getUser($user_id, $password, $dbh)){
@@ -45,11 +45,11 @@ if($me = getUser($user_id, $password, $dbh)){
 	header("Location: ".SITE_URL."profile.php");
 } else {
 	//パスワードが一致しない場合はエラーを表示する
-	$errmsg = 'パスワードが一致しません';
-	exit;
+	$errmsg = 'パスワードが一致しません。';
 }
+a:
 ?>
-//エラーによりPHP処理が終了した場合のみ表示されるHTML
+<!--エラーによりPHP処理が終了した場合のみ表示されるHTML-->
 <html>
 <html lang="ja">
     <head>
@@ -76,6 +76,8 @@ if($me = getUser($user_id, $password, $dbh)){
     <body>
     <div>
     <?php echo h($errmsg);?>
+    </br>
+    <a href="login.html">戻る</a>
     </div>
     </body>
 </html>

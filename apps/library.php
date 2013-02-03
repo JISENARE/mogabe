@@ -14,6 +14,14 @@ if (empty($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['user_name'];
 $point = $_SESSION['point'];
+
+$dbh = connectDb();
+
+$sql = "SELECT * FROM user_cards LEFT OUTER JOIN cards ON user_cards.card_id = cards.card_id 
+WHERE user_cards.user_id = :user_id";
+$stmt = $dbh->prepare($sql);
+$stmt->execute(array(":user_id"=>$user_id));
+$cardlist = $stmt->fetch();
 ?>
 
 <html>
@@ -80,13 +88,22 @@ $point = $_SESSION['point'];
                 </div>
                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
                     <li data-role="list-divider" role="heading">
-                        Divider
+                        カード一覧
                     </li>
+                    
+                    <?php
+                        foreach ($cardlist as $value){
+                    ?>
                     <li data-theme="c">
                         <a href="#" data-transition="slide">
-                            Button
-                        </a>
+                        
+                            <?php echo h($value[card_name]);?>
+                        
+                        </a>                   
                     </li>
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
             <div data-theme="b" data-role="footer" data-position="fixed">
