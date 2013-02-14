@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once('config.php');
 require_once('functions.php');
 
@@ -17,8 +17,7 @@ $point = $_SESSION['point'];
 
 $dbh = connectDb();
 
-$sql = "SELECT * FROM user_cards LEFT OUTER JOIN cards ON user_cards.card_id = cards.card_id 
-WHERE user_cards.user_id = :user_id";
+$sql = 'SELECT * FROM user_cards RIGHT OUTER JOIN cards ON user_cards.card_id = cards.card_id WHERE user_cards.user_id = :user_id';
 $stmt = $dbh->prepare($sql);
 $stmt->execute(array(":user_id"=>$user_id));
 $cardlist = $stmt->fetch();
@@ -90,20 +89,13 @@ $cardlist = $stmt->fetch();
                     <li data-role="list-divider" role="heading">
                         カード一覧
                     </li>
-                    
-                    <?php
-                        foreach ($cardlist as $value){
-                    ?>
                     <li data-theme="c">
                         <a href="#" data-transition="slide">
                         
-                            <?php echo h($value[card_name]);?>
+                            <?php echo h($cardlist[card_name]);?>
                         
                         </a>                   
                     </li>
-                    <?php
-                        }
-                    ?>
                 </ul>
             </div>
             <div data-theme="b" data-role="footer" data-position="fixed">
